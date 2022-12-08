@@ -1,0 +1,51 @@
+GET http://localhost:4000/users
+###
+
+
+GET http://localhost:4000/users/637150edd5d7df5450f25c95
+
+###
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+  "name":"nilu",
+  "email": "nilu@gmail.com",
+  "password": "1234"
+}
+
+###
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+  "email": "dan@gmail.com",
+  "password": "asdasd"
+}
+
+###
+PATCH http://localhost:4000/users/637150edd5d7df5450f25c95
+Content-Type: application/json
+
+{
+  "name":"new nilu"
+}
+
+###
+DELETE  http://localhost:4000/users/637fb82c972ba7826836b09f
+
+
+###
+GET http://localhost:4000/todos
+
+###
+POST http://localhost:4000/todos
+Content-Type: application/json
+
+{
+  "title":"maddy3",
+  "description": "maddy3@gmail.com",
+}
+
+###
+GET http://localhost:4000/users/me
