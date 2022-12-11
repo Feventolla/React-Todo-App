@@ -2,6 +2,8 @@ import axios from "axios";
 import plan1 from "../assets/plan1.svg";
 import plan2 from "../assets/plan2.svg";
 import "./login-Register.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -32,7 +34,7 @@ const Login = () => {
         localStorage.setItem("token", res.data.token);
         console.log(localStorage.getItem("token"));
         navigate("/todolist");
-        // console.log(res.data);
+
         // alert(res.data.message);
         //   if (res.status === 200) {
         //     localStorage.setItem("token", JSON.stringify(res.data.token));
@@ -45,7 +47,8 @@ const Login = () => {
         //   }
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data.message);
+        console.log(err.response.data.message);
       });
   };
 
@@ -83,11 +86,11 @@ const Login = () => {
               id="password"
               name="password"
             ></input>
-            <button type="submit">Log In</button>
+            <Button type="submit">Log In</Button>
           </form>
-          <button className="link-btn" onClick={() => navigate("/register")}>
+          <Button className="link-btn" onClick={() => navigate("/register")}>
             Don't have an account Register here
-          </button>
+          </Button>
         </div>
       </div>
     </div>

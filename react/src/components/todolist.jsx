@@ -1,9 +1,18 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import ProtectedRoutes from "../Pages/protectedroutes";
 import "../App.css";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import {
+  useNavigate,
+  useLocation,
+  Link,
+  Route,
+  Routes,
+} from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import AddTodo from "../components/AddTodo";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 const Todolist = () => {
   const [showaddtodo, setshowaddtodo] = useState(false);
@@ -29,22 +38,6 @@ const Todolist = () => {
     fetchTodo();
   }, []);
 
-  const addTodo = async (Todo) => {
-    const token = localStorage.getItem("token");
-    console.log("token addd", token);
-    const res = await fetch("/api/todos", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(Todo),
-    });
-    const todos = await res.json();
-
-    setTodo([...todo, todos]);
-  };
-
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/login");
@@ -61,25 +54,27 @@ const Todolist = () => {
   };
   return (
     // <Fragment>
-    <div className="app">
-      <div className="App-inside">
-        <div className="close-button">
-          <button onClick={logout}>Log out</button>
-          <HeaderButton
-            Add={() => {
-              setshowaddtodo(!showaddtodo);
-            }}
-            showadd={showaddtodo}
-          />{" "}
-          {showaddtodo && <AddTodo addTodo={addTodo} />}
-        </div>
-        <h2>Todo list</h2>
-        {todo.length > 0 ? (
-          <div className="cardAll">
-            {todo.map((todos, index) => (
-              <h3 className="card" key={index}>
-                {todos.title}{" "}
-                <button
+
+    <div>
+      <nav className="nav-add">
+        <Button onClick={logout}>Log out</Button>
+        <Button onClick={() => navigate("/addtodo")}>addtodo</Button>
+      </nav>
+
+      <h2>Todo list</h2>
+      {todo.length > 0 ? (
+        <div>
+          {todo.map((todos, index) => (
+            <div
+              className="card"
+              style={{ width: 700, marginLeft: 300 }}
+              key={index}
+            >
+              <h5 className="card-header">{todos._id}</h5>
+              <div className="card-body">
+                <h5 className="card-title">{todos.title}</h5>
+                <p className="card-text">{todos.description} </p>
+                <Button
                   className="btn"
                   onClick={() =>
                     navigate("/updatetodo/" + todos._id, {
@@ -88,40 +83,44 @@ const Todolist = () => {
                   }
                 >
                   update
-                </button>{" "}
-                <button
+                </Button>{" "}
+                <Button
                   className="btn"
                   text="delete"
                   onClick={() => deleteTodo(todos._id)}
                 >
                   Delete
-                </button>{" "}
-              </h3>
-            ))}
-          </div>
-        ) : (
-          "no task available"
-        )}
-      </div>
+                </Button>{" "}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <h2 style={{ textAlign: "center" }}>no task available</h2>
+      )}
     </div>
   );
 };
 
-// <Link
-// to={"updatetodo/" + todos._id}
-// state={{ id: todos._id }}
-// >
-// Update
-// </Link>
-
-// <Link
-//                   to={{
-//                     pathname: "/updatetodo",
-//                     state: todos._id,
-//                   }}
+//                 <Button
+//                   className="btn"
+//                   onClick={() =>
+//                     navigate("/updatetodo/" + todos._id, {
+//                       state: { id: todos._id },
+//                     })
+//                   }
 //                 >
-//                   {" "}
-//                   Update{" "}
-//                 </Link>
+//                   update
+//                 </Button>{" "}
+//                 <Button
+//                   className="btn"
+//                   text="delete"
+//                   onClick={() => deleteTodo(todos._id)}
+//                 >
+//                   Delete
+//                 </Button>{" "}
+//               </h3>
+//             ))}
+//           </div>
 
 export default Todolist;

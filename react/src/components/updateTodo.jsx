@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Todolist from "./todolist";
 import "../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 const updateTodo = (props) => {
   const [todo, setTodo] = useState([]);
@@ -53,7 +55,7 @@ const updateTodo = (props) => {
   return (
     <div className="app">
       <div className="app-inside">
-        <div className="auth-form-container" style={{ height: 300 }}>
+        <div className="auth-form-container" style={{ height: 500 }}>
           <h2 style={{ marginLeft: 3 }}>update Todo</h2>
           <form className="login-form" onSubmit={updateTodo}>
             <label>Title : </label>
@@ -77,7 +79,7 @@ const updateTodo = (props) => {
               type="text"
               name="description"
             ></input>
-            <button type="submit">Update</button>
+            <Button type="submit">Update</Button>
           </form>
         </div>
       </div>

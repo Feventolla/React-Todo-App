@@ -4,27 +4,27 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
   
 }
  h2 {
   margin-left: 3em;
 }
 .cardAll {
-  color: white;
+  color: black;
 }
 .app-inside{
   display: flex;
   flex-direction: column;
 
 }
-.close-button {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-
+.nav-add{
+  position: fixed;
+  top: 3em;
+  right:5em
 }
+
 
 .auth-form-container {
   display: flex;
@@ -65,14 +65,14 @@ input {
   background-color: rgba(224, 227, 245, 0.659);
 }
 
-button {
+/* button {
   border: none;
   background-image: linear-gradient(79deg, #03062d, #050e2c 48%, #060a30);
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
   color: #bfa2f0;
-}
+} */
 
 .link-btn {
   background: none;

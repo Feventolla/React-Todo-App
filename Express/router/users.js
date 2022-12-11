@@ -140,10 +140,12 @@ router.post("/api/users/login", async (req, res) => {
       // console.log(token);
     } else {
       // res.status(404).json({ message: "Incorrect password" });
-      res.status(400).json("Not Allowed...Incorrect password or Username");
+      res
+        .status(400)
+        .json({ message: "Not Allowed...Incorrect password or Username" });
     }
   } catch {
-    res.status(500).json("Server Internal Error");
+    res.status(500).json({ message: "Server Internal Error" });
   }
 });
 

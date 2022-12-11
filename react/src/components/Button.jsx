@@ -1,10 +1,12 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
-const Button = ({ color, text, onClick }) => {
+const Buttonn = ({ color, text, onClick }) => {
   return (
-    <button onClick={onClick} style={{ backgroundColor: color }}>
+    <Button onClick={onClick} style={{ backgroundColor: color }}>
       {text}
-    </button>
+    </Button>
   );
 };
 
@@ -17,4 +19,4 @@ const Button = ({ color, text, onClick }) => {
 //   text: PropTypes.string,
 //   color: PropTypes.string,
 // };
-export default Button;
+export default Buttonn;

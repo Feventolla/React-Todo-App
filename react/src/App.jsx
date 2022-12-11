@@ -100,6 +100,15 @@ function App() {
             </ProtectedRoutes>
           }
         />
+        <Route
+          path="/addTodo"
+          element={
+            <ProtectedRoutes>
+              {" "}
+              <AddTodo />{" "}
+            </ProtectedRoutes>
+          }
+        />
         <Route path="/register" element={<AddUser OnAdd={addUser} />} />
         <Route
           path="/userlist"

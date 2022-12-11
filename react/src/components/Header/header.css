@@ -5,7 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.8rem 10rem;
+  padding: 1.2rem 10rem;
+  text-decoration: none;
 
   /* background-color: #21212150; */
 
@@ -19,12 +20,14 @@
 }
 span{
   color: rgb(47, 74, 137);
+  font-family:cursive;
 }
 
 nav {
   display: flex;
   align-items: center;
   gap: 2.8rem;
+  
 }
 .header-nav {
   color: white;
@@ -40,6 +43,8 @@ nav {
   /* width: 100vw; */
   z-index: 1000;
   display: flex;
+  text-decoration: none;
+
   /* justify-content: space-between;
   align-items: center; */
   /* padding: 1.8rem 10rem; */
@@ -58,6 +63,8 @@ nav {
   /* width: 100vw; */
   z-index: 1000;
   display: flex;
+  text-decoration: none;
+
   /* justify-content: space-between;
   align-items: center; */
   /* padding: 1.8rem 10rem; */

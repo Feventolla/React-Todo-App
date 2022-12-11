@@ -1,3 +1,3 @@
 # React-Todo-App
 
-simple MERN Todo applicatio
+simple MERN Todo application

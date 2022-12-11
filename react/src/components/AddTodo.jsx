@@ -1,23 +1,43 @@
 import React, { useState } from "react";
 import "./login-Register.css";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = () => {
+  const [todo, setTodo] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isCompleted, setIsCompleted] = useState("");
   const navigate = useNavigate();
+
+  const addTodo = async (Todo) => {
+    const token = localStorage.getItem("token");
+    console.log("token addd", token);
+    const res = await fetch("/api/todos", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(Todo),
+    });
+    const todos = await res.json();
+
+    setTodo([...todo, todos]);
+  };
 
   const addtodo = (e) => {
     e.preventDefault();
     addTodo({ title, description });
     setTitle("");
     setDescription("");
+    navigate("/todolist");
   };
 
   return (
     <div className="app-inside">
-      <div className="auth-form-container" style={{ height: 250 }}>
+      <div className="auth-form-container" style={{ height: 500 }}>
         <h2 style={{ marginLeft: 3 }}>New Todo</h2>
         <form className="login-form" onSubmit={addtodo}>
           <label htmlFor="title">Title : </label>
@@ -42,7 +62,7 @@ const AddTodo = ({ addTodo }) => {
             id="description"
             name="description"
           ></input>
-          <button type="submit">Send</button>
+          <Button type="submit">Send</Button>
         </form>
       </div>
     </div>

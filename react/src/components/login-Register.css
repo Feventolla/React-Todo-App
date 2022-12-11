@@ -11,7 +11,7 @@
   background-image: url("../assets/star-space.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(1px);
+  /* filter: blur(1px); */
 }
 h2 {
   margin-left: 3em;
@@ -20,6 +20,7 @@ h2 {
   display: flex;
   flex-direction: column;
   color: black;
+  align-items: center;
 
 
 }
@@ -28,11 +29,11 @@ h2 {
   display: flex;
   flex-direction: column;
   background-color: hwb(223 94% 3%);
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 430px
+  /* height: 500px */
 
 
   /* background-image: linear-gradient(60deg, #f2f2f5, #a8bbf9 48%, #ecedf4); */
@@ -63,14 +64,14 @@ input {
   background-color: rgba(224, 227, 245, 0.659);
 }
 
-button {
+/* button {
   border: none;
   background-image: linear-gradient(79deg, #03062d, #050e2c 48%, #060a30);
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
   color: #bfa2f0;
-}
+} */
 
 .link-btn {
   background: none;

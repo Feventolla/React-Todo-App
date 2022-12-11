@@ -1,30 +1,23 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import "./header.css";
 
 const Header = () => {
   return (
     <div>
-      <div className="header-txt">
+      <HashLink smooth to="/" className="header-txt">
         <p>
           <span>GO</span>Todo
         </p>
-      </div>
+      </HashLink>
       <nav>
-        <Link
-          style={{ textDecoration: "none" }}
-          className="header-nav"
-          to={"/login"}
-        >
+        <HashLink className="header-nav" smooth to="/login">
           LOGIN
-        </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          className="header-nav2"
-          to={"/register"}
-        >
+        </HashLink>
+        <HashLink className="header-nav2" smooth to={"/register"}>
           Register
-        </Link>
+        </HashLink>
       </nav>
     </div>
   );
